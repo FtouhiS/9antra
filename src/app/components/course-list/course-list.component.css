@@ -1,0 +1,62 @@
+/* course-list.component.css */
+
+/* Center the table horizontally */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Styling for the table */
+  .table {
+    width: 80%; /* Adjust width as per your layout */
+    margin-top: 20px;
+  }
+  
+  /* Styling for table headers */
+  .table th {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  /* Styling for table rows */
+  .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  /* Styling for image thumbnails */
+  .img-thumbnail {
+    max-width: 100px; /* Adjust maximum width */
+    max-height: 100px; /* Adjust maximum height */
+    border: 1px solid #ddd; /* Gray border around images */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  /* Styling for action buttons */
+  .btn {
+    margin-right: 5px; /* Margin between buttons */
+    padding: 5px 10px; /* Padding inside buttons */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+  }
+  
+  /* Primary button color */
+  .btn-primary {
+    background-color: red; /* Blue */
+    border-color: red; /* Blue */
+    color: white; /* White text */
+  }
+  
+  /* Success button color */
+  .btn-success {
+    background-color: #28a745; /* Green */
+    border-color: #28a745; /* Green */
+    color: white; /* White text */
+  }
+  
+  /* Hover effect for buttons */
+  .btn:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+  }
+  
