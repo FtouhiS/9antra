@@ -1,50 +1,40 @@
 <div class="container mt-5">
-    <h2>Course List</h2>
-  
-    <!-- Course Form -->
-    <form [formGroup]="courseForm" (ngSubmit)="addCourse()">
-      <div class="mb-3">
-        <label for="courseName" class="form-label">Course Name</label>
-        <input type="text" class="form-control" id="courseName" formControlName="courseName">
-      </div>
-      <div class="mb-3">
-        <label for="coursePrice" class="form-label">Course Price</label>
-        <input type="number" class="form-control" id="coursePrice" formControlName="coursePrice">
-      </div>
-      <div class="mb-3">
-        <label for="courseImage" class="form-label">Course Image</label>
-        <input type="file" class="form-control" id="courseImage" (change)="onFileSelected($event)">
-      </div>
-      <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Add Course</button>
-      </div>
-    </form>
-  
-    <!-- Course List Table -->
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Course ID</th>
-          <th>Course Name</th>
-          <th>Price</th>
-          <th>Image</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let course of courses">
-          <td>{{ course.idCourse }}</td>
-          <td>{{ course.courseName }}</td>
-          <td>{{ course.coursePrice }}/Month</td>
-          <td>
-            <img [src]="course.courseImage" alt="{{ course.courseName }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
-          </td>
-          <td>
-            <button class="btn btn-sm btn-primary" (click)="deleteCourse(course.idCourse)">Delete</button>
-            <button type="button" class="btn btn-success" (click)="updateCourse()">Update </button>
+  <h2>Course List</h2>
+
+  <!-- Add Course Button -->
+  <button class="btn btn-primary mb-3" (click)="navigateToAddCourse()">Add Course</button>
+
+  <!-- Course List Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.idCourse }}</td>
+        <td>{{ course.courseName }}</td>
+        <td>{{ course.coursePrice }}/Month</td>
+        <td>
+          <img [src]="getImageUrl(course.courseImage)" alt="Course Image" width="200" height="150">
         </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+        <td class="action-buttons">
+          <div *ngIf="!confirmDeleteMessage">
+            <button class="btn btn-sm btn-primary" (click)="toggleConfirmDelete(course.idCourse)">Delete</button>
+            <button type="button" class="btn btn-success btn-sm" (click)="navigateToUpdateCourse(course.idCourse)">Update</button>
+          </div>
+          <div *ngIf="confirmDeleteMessage && courseIdToDelete === course.idCourse">
+            <span>Are you sure?</span>
+            <button class="btn btn-danger btn-sm" (click)="deleteCourse()">Yes</button>
+            <button class="btn btn-secondary btn-sm" (click)="toggleConfirmDelete(0)">No</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

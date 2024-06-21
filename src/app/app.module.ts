@@ -3,24 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseListComponent } from './components/course-list/course-list.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './home/home.component';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseListComponent,
     HomeComponent,
+    AddCourseComponent,
+    UpdateCourseComponent,
 
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule, // Add this line to import ReactiveFormsModule
+    ReactiveFormsModule, 
+    FormsModule, // Add FormsModule here
+    // Add this line to import ReactiveFormsModule
     HttpClientModule,
+    AppRoutingModule // Ensure AppRoutingModule is imported here
+
   ],
   providers: [],
   bootstrap: [AppComponent]

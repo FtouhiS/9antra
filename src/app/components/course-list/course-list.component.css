@@ -43,8 +43,8 @@
   
   /* Primary button color */
   .btn-primary {
-    background-color: red; /* Blue */
-    border-color: red; /* Blue */
+    background-color: #c01777; /* Blue */
+    border-color:  #c01777; /* Blue */
     color: white; /* White text */
   }
   

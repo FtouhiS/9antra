@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Course } from '../../models/course';
-import { CourseService } from '../../services/course.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CourseService } from '../services/course.service';
+import { Course } from '../models/course';
 
 @Component({
   selector: 'app-home',

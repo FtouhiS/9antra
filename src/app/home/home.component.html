@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.component.css">
+    <title>Your Page Title</title>
+</head>
+<body>
+    <header>
+        <img class="header-img" src="assets/back.jpg" alt="Big Image">
+        <div class="header-content">
+            <h1>Improve your skills on your own</h1>
+            <h2>To prepare for a better future</h2>
+            <a href="#register" class="btn">REGISTER NOW</a>
+        </div>
+    </header>
+
+    <section id="courses">
+        <h2>Discover Our Courses</h2>
+        <a href="#view-more" class="btn">View More</a>
+
+        <div id="courses-container">
+            <div *ngFor="let course of courses" class="course-card">
+                <h3>{{ course.courseName }}</h3>
+                <p>{{ course.coursePrice }} DT/ Month</p>
+                <img *ngIf="course.courseImage" [src]="course.courseImage" alt="{{ course.courseName }}">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div>
+            <h2>Contact Us</h2>
+            <form action="send_message.php" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send the message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
