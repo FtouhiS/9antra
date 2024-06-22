@@ -24,8 +24,8 @@
             <div *ngFor="let course of courses" class="course-card">
                 <h3>{{ course.courseName }}</h3>
                 <p>{{ course.coursePrice }} DT/ Month</p>
-                <img *ngIf="course.courseImage" [src]="course.courseImage" alt="{{ course.courseName }}">
-            </div>
+                    <img [src]="getImageUrl(course.imageFile)" alt="{{ course.courseName }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+                              </div>
         </div>
     </section>
 

@@ -4,5 +4,5 @@ export class Course{
 
    coursePrice!:number;          
   
-   courseImage !:string;
+   imageFile !:string;
 }

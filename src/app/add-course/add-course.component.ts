@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 export class AddCourseComponent {
   @ViewChild('courseForm') courseForm!: NgForm;
   selectedFile: File | undefined;
-  imageUrl: string | undefined;
+  imageUrl: string | ArrayBuffer | null = null; // Correct type for imageUrl
+  imageFile: File | undefined;
+  message: string | undefined;
+  imagePath: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -42,7 +45,18 @@ export class AddCourseComponent {
     }
   }
 
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
+
+onFileSelected(event: any): void {
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+    this.selectedFile = file;
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (_event) => {
+      this.imageUrl = reader.result as string; // Update imageUrl for preview
+    };
   }
+}
+
 }

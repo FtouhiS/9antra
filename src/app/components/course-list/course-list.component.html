@@ -21,7 +21,7 @@
         <td>{{ course.courseName }}</td>
         <td>{{ course.coursePrice }}/Month</td>
         <td>
-          <img [src]="getImageUrl(course.courseImage)" alt="Course Image" width="200" height="150">
+          <img [src]="getImageUrl(course.imageFile)" alt="{{ course.courseName }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
         </td>
         <td class="action-buttons">
           <div *ngIf="!confirmDeleteMessage">

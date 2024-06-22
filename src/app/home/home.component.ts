@@ -18,7 +18,7 @@ export class HomeComponent {
     this.courseForm = this.fb.group({
       courseName: ['', Validators.required],
       coursePrice: ['', Validators.required],
-      courseImage: ['']
+      imageFile: ['']
     });
   }
 
@@ -43,7 +43,9 @@ export class HomeComponent {
     }
   }
 
- 
+  getImageUrl(imageFile: string): string {
+    return `assets/${imageFile}`;
+  }
   
   }
 

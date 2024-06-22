@@ -22,7 +22,7 @@ export class CourseListComponent implements OnInit {
     this.courseForm = this.fb.group({
       courseName: ['', Validators.required],
       coursePrice: ['', Validators.required],
-      courseImage: ['']
+      imageFile: ['']
     });
   }
 
@@ -55,7 +55,7 @@ export class CourseListComponent implements OnInit {
   addCourse(): void {
     if (this.courseForm.valid) {
       const courseData = this.courseForm.value;
-      this.courseService.addCourse(courseData, this.imageFile).subscribe(
+      this.courseService.addCourse(courseData).subscribe(
         (response) => {
           console.log('Course added successfully:', response);
           this.resetFormAndReload();
@@ -125,7 +125,7 @@ export class CourseListComponent implements OnInit {
   }
 
   getImageUrl(imageFile: string): string {
-    return `http://localhost:8089/image/${imageFile}`;
+    return `assets/${imageFile}`;
   }
 
   resetConfirmDelete(): void {

@@ -15,13 +15,8 @@ export class CourseService {
     return this.http.get<Course[]>(`${this.baseUrl}/getAll`);
   }
 
-  addCourse(course: Course, imageFile: File | null): Observable<any> {
-    const formData: FormData = new FormData();
-    formData.append('courseName', course.courseName);
-    formData.append('coursePrice', course.coursePrice.toString());
-    if (imageFile) {
-      formData.append('imageFile', imageFile, imageFile.name);
-    }
+  addCourse(formData:FormData): Observable<any> {
+    
 
     return this.http.post(`${this.baseUrl}/addCourse`, formData);
   }

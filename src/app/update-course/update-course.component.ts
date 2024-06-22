@@ -73,7 +73,7 @@ export class UpdateCourseComponent implements OnInit {
         idCourse: this.idCourse,
         courseName: this.courseForm.value.courseName,
         coursePrice: this.courseForm.value.coursePrice,
-        courseImage: this.courseForm.value.courseImage
+        imageFile: this.courseForm.value.imageFile
       };
 
       this.courseService.updateCourse(this.idCourse, updatedCourse).subscribe(
