@@ -1,16 +1,45 @@
 <form #courseForm="ngForm" (ngSubmit)="submitForm()">
   <div class="form-group">
     <label for="courseName">Course Name</label>
-    <input type="text" id="courseName" name="courseName" class="form-control" [(ngModel)]="courseForm.value.courseName" required>
+    <input 
+      type="text" 
+      id="courseName" 
+      name="courseName" 
+      class="form-control" 
+      ngModel 
+      required 
+      #courseName="ngModel">
+    <div *ngIf="courseName.invalid && courseName.touched" class="text-danger">
+      *Please enter the course name .
+    </div>
   </div>
   <div class="form-group">
     <label for="coursePrice">Course Price</label>
-    <input type="number" id="coursePrice" name="coursePrice" class="form-control" [(ngModel)]="courseForm.value.coursePrice" required>
+    <input 
+      type="number" 
+      id="coursePrice" 
+      name="coursePrice" 
+      class="form-control" 
+      ngModel 
+      required 
+      min="0"
+      #coursePrice="ngModel">
+    <div *ngIf="coursePrice.invalid && coursePrice.touched" class="text-danger">
+      <div *ngIf="coursePrice.errors?.['required']">
+        *Please enter the Course price.
+      </div>
+      <div *ngIf="coursePrice.errors?.['min']">
+        *Course price cannot be negative.
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="imageFile">Course Image</label>
-    <input type="file" id="imageFile" name="imageFile" class="form-control-file" (change)="onFileSelected($event)" required>
-    <img *ngIf="imageUrl" [src]="imageUrl" height="200" class="mt-2" />
+    <input type="file" id="imageFile" name="imageFile" class="form-control-file" (change)="onFileSelected($event)" accept="image/*" required>
+    <div class="image-preview-container">
+      <img *ngIf="imageUrl" [src]="imageUrl" class="img-preview" />
+    </div>
+    <small class="form-text text-muted">Select an image file (JPG, PNG) with maximum size 5MB.</small>
   </div>
   <button type="submit" class="btn btn-primary">Add Course</button>
 </form>

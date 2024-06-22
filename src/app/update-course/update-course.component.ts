@@ -16,7 +16,10 @@ export class UpdateCourseComponent implements OnInit {
   successMessage: string = '';
   errorMessage: string = '';
   selectedFile: File | undefined;
-
+  imageUrl: string | ArrayBuffer | null = null; // Correct type for imageUrl
+  imageFile: File | undefined;
+  message: string | undefined;
+  imagePath: any;
 
   constructor(
     private fb: FormBuilder,
@@ -94,6 +97,16 @@ export class UpdateCourseComponent implements OnInit {
     }
   }
   onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.selectedFile = file;
+  
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (_event) => {
+        this.imageUrl = reader.result as string; // Update imageUrl for preview
+      };
+    }
+  
   }
 }
