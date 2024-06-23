@@ -3,9 +3,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseListComponent } from './components/course-list/course-list.component';
-import { AddCourseComponent } from './add-course/add-course.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
 import { HomeComponent } from './home/home.component';
-import { UpdateCourseComponent } from './update-course/update-course.component';
+import { UpdateCourseComponent } from './components/update-course/update-course.component';
 
 
 const routes: Routes = [

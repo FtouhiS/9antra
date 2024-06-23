@@ -7,8 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { HomeComponent } from './home/home.component';
-import { AddCourseComponent } from './add-course/add-course.component';
-import { UpdateCourseComponent } from './update-course/update-course.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
+import { UpdateCourseComponent } from './components/update-course/update-course.component';
 
 @NgModule({
   declarations: [
